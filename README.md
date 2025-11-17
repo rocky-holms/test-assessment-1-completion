@@ -19,10 +19,20 @@ This project processes healthcare data exports from a mock server API. Each expo
 
 ## Quick Start
 
-```bash
-# Install dependencies
-uv sync
+### Installation
 
+```bash
+# Clone the repository
+git clone https://github.com/rocky-holms/test-assessment-1-completion.git
+cd test-assessment-1-completion
+
+# Install dependencies (includes dev dependencies for testing)
+uv sync --dev
+```
+
+### Running the Solution
+
+```bash
 # Terminal 1: Start the mock server
 uv run server
 
@@ -110,13 +120,13 @@ Comprehensive test suite with 36 tests covering unit, integration, and validatio
 
 ```bash
 # Run unit tests (fast, no server needed)
-pytest -m "not integration"
+uv run pytest -m "not integration"
 
-# Run all tests (requires server running)
-pytest
+# Run all tests (requires server running in another terminal)
+uv run pytest
 
 # Run with coverage
-pytest --cov=src/cli --cov-report=html
+uv run pytest --cov=src/cli --cov-report=html
 ```
 
 **Coverage:** 100% on core processing logic (`api_client.py` and `processor.py`)
@@ -184,17 +194,17 @@ pytest-cov = ">=4.1.0"    # Coverage reporting
 ## Development
 
 ```bash
-# Install with dev dependencies
+# Install with dev dependencies (if not already done)
 uv sync --dev
 
 # Run linter
-ruff check src/cli/ tests/
+uv run ruff check src/cli/ tests/
 
-# Format code
-black src/cli/ tests/
+# Format code (if needed)
+uv run black src/cli/ tests/
 
-# Type check
-mypy src/cli/
+# Run all checks before committing
+uv run pytest -m "not integration" && uv run ruff check src/cli/ tests/
 ```
 
 ## Requirements Satisfied
