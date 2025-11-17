@@ -12,6 +12,11 @@ This project processes healthcare data exports from a mock server API. Each expo
 - Comprehensive test suite (36 tests, 100% coverage on core logic)
 - Clean, typed Python with full documentation
 
+## Requirements
+
+- **Python 3.13+** (uses modern type hints and features)
+- [uv](https://github.com/astral-sh/uv) for dependency management
+
 ## Quick Start
 
 ```bash
