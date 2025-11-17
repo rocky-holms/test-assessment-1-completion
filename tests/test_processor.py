@@ -1,7 +1,5 @@
 """Unit tests for CSV processing and aggregation logic."""
 
-import pytest
-from io import StringIO
 from cli.processor import (
     process_csv_stream,
     aggregate_counts,
